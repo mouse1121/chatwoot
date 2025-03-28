@@ -79,6 +79,11 @@ COPY . /app
 # Build the frontend SDK
 RUN pnpm run build:sdk
 
+# Clear old assets before generating new ones
+RUN if [ "$RAILS_ENV" = "production" ]; then \
+  bundle exec rake webpacker:clobber RAILS_ENV=production; \
+  fi
+
 # Generate production assets if production environment
 RUN if [ "$RAILS_ENV" = "production" ]; then \
   SECRET_KEY_BASE=precompile_placeholder RAILS_LOG_TO_STDOUT=enabled bundle exec rake assets:precompile \
