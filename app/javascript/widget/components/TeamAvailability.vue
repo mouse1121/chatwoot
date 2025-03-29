@@ -42,10 +42,12 @@ export default {
     },
     isOnline() {
       const { workingHoursEnabled } = this.channelConfig;
+      const anyAgentOnline = this.availableAgents.length > 0;
+
       if (workingHoursEnabled) {
         return this.isInBetweenTheWorkingHours;
       }
-      return true; // Изменено для отображения всех агентов
+      return anyAgentOnline;
     },
   },
   methods: {
