@@ -22,26 +22,16 @@ export const setBubbleText = bubbleText => {
 
 export const createBubbleIcon = ({ className, path, target }) => {
   let bubbleClassName = `${className} woot-elements--${window.$chatwoot.position}`;
-  const bubbleIcon = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'svg'
-  );
-  bubbleIcon.setAttributeNS(null, 'id', 'woot-widget-bubble-icon');
-  bubbleIcon.setAttributeNS(null, 'width', '24');
-  bubbleIcon.setAttributeNS(null, 'height', '24');
-  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 240 240');
-  bubbleIcon.setAttributeNS(null, 'fill', 'none');
-  bubbleIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-
-  const bubblePath = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'path'
-  );
-  bubblePath.setAttributeNS(null, 'd', path);
-  bubblePath.setAttributeNS(null, 'fill', '#FFFFFF');
-
-  bubbleIcon.appendChild(bubblePath);
-  target.appendChild(bubbleIcon);
+  
+  // Create an image element instead of SVG
+  const bubbleImage = document.createElement('img');
+  bubbleImage.id = 'woot-widget-bubble-icon';
+  bubbleImage.src = 'https://nodeplay.net/cdn-cgi/image/w=32,h=32,dpr=2,f=avif,q=80/https://api.nodeplay.app/uploads/logo_chat_a5ca7e1198.png'; // Replace with your image URL
+  bubbleImage.width = 32;
+  bubbleImage.height = 32;
+  bubbleImage.alt = 'Chat bubble';
+  
+  target.appendChild(bubbleImage);
 
   if (isExpandedView(window.$chatwoot.type)) {
     const textNode = document.createElement('div');
