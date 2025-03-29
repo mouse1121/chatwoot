@@ -71,21 +71,21 @@ export default {
   >
     <div class="flex items-center justify-between gap-2">
       <div class="flex flex-col gap-1">
-        <div class="text-sm font-medium text-slate-700 dark:text-slate-50">
+        <div class="font-medium text-n-slate-12">
           {{
             isOnline
               ? $t('TEAM_AVAILABILITY.ONLINE')
               : $t('TEAM_AVAILABILITY.OFFLINE')
           }}
         </div>
-        <div class="mt-1 text-sm text-slate-500 dark:text-slate-100">
+        <div class="text-n-slate-11">
           {{ replyWaitMessage }}
         </div>
       </div>
       <GroupedAvatars v-if="isOnline" :users="availableAgents" />
     </div>
     <button
-      class="inline-flex items-center justify-between px-2 py-1 mt-2 -ml-2 text-sm font-medium leading-6 rounded-md text-slate-800 dark:text-slate-50 hover:bg-slate-25 dark:hover:bg-slate-800"
+      class="inline-flex items-center gap-1 font-medium text-n-slate-12"
       :style="{ color: widgetColor }"
       @click="startConversation"
     >
