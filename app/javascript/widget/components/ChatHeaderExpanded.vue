@@ -44,7 +44,7 @@ const containerClasses = computed(() => [
     </div>
     <h2
       v-dompurify-html="introHeading"
-      class="mt-4 text-2xl mb-1.5 font-medium text-n-slate-12"
+      class="z-50 flex flex-col flex-1 w-full rounded-md justify-end"
     />
     <p
       v-dompurify-html="introBody"
