@@ -48,7 +48,7 @@ const containerClasses = computed(() => [
     />
     <p
       v-dompurify-html="introBody"
-      class="text-lg leading-normal text-n-slate-11"
+      class="text-base leading-normal text-slate-700"
     />
   </header>
 </template>
